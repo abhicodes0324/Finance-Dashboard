@@ -148,6 +148,20 @@ h2 {
   gap: 0.6rem;
 }
 
+.date-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.date-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 500;
+  margin: 0;
+  display: block;
+}
+
 .admin-form {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: end;
@@ -299,7 +313,7 @@ th {
   }
 
   .filter-row {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .admin-form {
@@ -312,7 +326,22 @@ th {
     padding: 1rem 0.6rem 1.6rem;
   }
 
-  .filter-row,
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+
+  .date-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .date-label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+
   .admin-form {
     grid-template-columns: 1fr;
   }

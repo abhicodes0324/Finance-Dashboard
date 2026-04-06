@@ -197,19 +197,27 @@ export function TransactionsSection({
           <option value="lowest">Lowest Amount</option>
         </select>
 
-        <input
-          type="date"
-          value={fromDate}
-          aria-label="From date"
-          onChange={(e) => onFromDateChange(e.target.value)}
-        />
+        <div className="date-input-wrapper">
+          <label htmlFor="from-date" className="date-label">From</label>
+          <input
+            id="from-date"
+            type="date"
+            value={fromDate}
+            aria-label="From date"
+            onChange={(e) => onFromDateChange(e.target.value)}
+          />
+        </div>
 
-        <input
-          type="date"
-          value={toDate}
-          aria-label="To date"
-          onChange={(e) => onToDateChange(e.target.value)}
-        />
+        <div className="date-input-wrapper">
+          <label htmlFor="to-date" className="date-label">To</label>
+          <input
+            id="to-date"
+            type="date"
+            value={toDate}
+            aria-label="To date"
+            onChange={(e) => onToDateChange(e.target.value)}
+          />
+        </div>
 
         <label className="check-label">
           <input
