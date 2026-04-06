@@ -14,7 +14,23 @@ import { formatCurrency } from '../utils/dashboard'
 
 const COLORS = ['#60a5fa', '#38bdf8', '#818cf8', '#22c55e', '#f59e0b', '#f97316', '#ef4444']
 
-export function ChartsSection({ trendData, spendingData, selectedCategory, onCategorySelect }) {
+export function ChartsSection({
+  theme,
+  trendData,
+  spendingData,
+  selectedCategory,
+  onCategorySelect,
+}) {
+  const isDarkMode = theme === 'dark'
+  const axisColor = isDarkMode ? '#e2e8f0' : '#64748b'
+  const gridColor = isDarkMode ? '#334155' : '#e5e7eb'
+  const tooltipStyle = {
+    backgroundColor: isDarkMode ? '#0f172a' : '#ffffff',
+    border: `1px solid ${gridColor}`,
+    color: isDarkMode ? '#dbeafe' : '#1e293b',
+    borderRadius: '0.75rem',
+  }
+
   return (
     <section className="charts-grid">
       <article className="card chart-card">
@@ -28,10 +44,18 @@ export function ChartsSection({ trendData, spendingData, selectedCategory, onCat
                   <stop offset="95%" stopColor="#2563eb" stopOpacity={0.02} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis dataKey="label" tick={{ fontSize: 12 }} />
-              <YAxis tickFormatter={formatCurrency} tick={{ fontSize: 12 }} />
-              <Tooltip formatter={(value) => formatCurrency(value)} />
+              <CartesianGrid strokeDasharray="3 3" stroke={gridColor} />
+              <XAxis dataKey="label" stroke={axisColor} tick={{ fill: axisColor, fontSize: 12 }} />
+              <YAxis
+                tickFormatter={formatCurrency}
+                stroke={axisColor}
+                tick={{ fill: axisColor, fontSize: 12 }}
+              />
+              <Tooltip
+                formatter={(value) => formatCurrency(value)}
+                contentStyle={tooltipStyle}
+                labelStyle={{ color: axisColor }}
+              />
               <Area type="monotone" dataKey="balance" stroke="#2563eb" fill="url(#balanceGradient)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
@@ -67,7 +91,11 @@ export function ChartsSection({ trendData, spendingData, selectedCategory, onCat
                     />
                   ))}
                 </Pie>
-                <Tooltip formatter={(value) => formatCurrency(value)} />
+                  <Tooltip
+                    formatter={(value) => formatCurrency(value)}
+                    contentStyle={tooltipStyle}
+                    labelStyle={{ color: axisColor }}
+                  />
               </PieChart>
             </ResponsiveContainer>
           ) : (

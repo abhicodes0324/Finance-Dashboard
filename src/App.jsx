@@ -331,6 +331,7 @@ function App() {
       <SummaryCards summary={summary} />
 
       <ChartsSection
+        theme={theme}
         trendData={trendData}
         spendingData={spendingData}
         selectedCategory={categoryFilter}
