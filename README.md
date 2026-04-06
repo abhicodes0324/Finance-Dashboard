@@ -2,6 +2,10 @@
 
 A React-based finance dashboard built for the frontend assignment. It focuses on clean UI, practical data interactions, and clear state handling using local component state and memoized selectors.
 
+## Live Demo
+
+[finance-dashboard-xi-seven.vercel.app](https://finance-dashboard-xi-seven.vercel.app/)
+
 ## Features
 
 - **Dashboard Overview**
